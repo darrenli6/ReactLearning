@@ -5,3 +5,6 @@
 #myapp{
     background: green;
 }
+.hidden{
+    display: none;
+}
