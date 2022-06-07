@@ -1,21 +1,89 @@
+import axios from "axios";
 import { Component } from "react";
-import axios from 'axios'
+ 
 
 
 export default class Cinema extends Component{
-
+ 
     constructor(){
         super()
         // 请求数据
-
+ 
         // axios 第三方库 专门用于请求数据
+        // axios.get("https://napi.fdcfabric.com/common/getChengfen").then(res=>{
+        //   console.log(res);
+
+        // }).catch(err=>{
+        //     console.log(err)
+        // })
+
+        this.state ={
+            cinemaList: [],
+            bcinemaList:[]
+        }
+
+
+        axios({
+            url:"https://napi.fdcfabric.com/common/getChengfen",
+            method:"get",
+            headers:{
+                "xxx":"xxx"
+            },
+        
+          }).then(res=>{
+              console.log(res.data.data)
+              this.setState({
+                  cinemaList:res.data.data,
+                  bcinemaList:res.data.data
+              })
+          })
 
 
     }
     // 后面声明周期函数 更适合发送ajax请求
     render(){
         return (
-            <div>Cinema 组件</div>
+            <div>
+                <input onInput={this.handleInput} />
+              
+                  {
+                      this.state.cinemaList.map(item=>
+                        <dl key={item.id}>
+                            <dt>{item.key}</dt>
+                            <dd>{item.value}</dd>
+                            </dl>
+                        )
+                  }
+               
+            </div>
         )
     }
+
+    handleInput=(event)=>{
+        console.log("input",event.target.value)
+
+       var newarr= this.state.bcinemaList.filter(item=>item.key.toUpperCase().includes(event.target.value.toUpperCase()) || 
+       item.value.toUpperCase().includes(event.target.value.toUpperCase()) )
+       console.log(newarr)
+
+       this.setState({
+           cinemaList:newarr
+       })
+
+       // cinemalist 每次都会覆盖,引入 bcinemaList
+
+
+
+
+
+
+    }
 }
+
+/*
+filter
+*/
+
+var arr =["aaa","abc","bcc"]
+var newarr =arr.filter(item=>item.includes("a"))
+console.log(newarr)
