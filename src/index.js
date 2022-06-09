@@ -4,7 +4,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './01-base/01-class组件'
-import App from './01-base/12-选项卡'
+import App from './01-base/16-props'
   
 
 ReactDOM.render(
