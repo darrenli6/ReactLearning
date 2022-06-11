@@ -2,8 +2,16 @@ import { Component } from "react";
 import NavBar from './Navbar/index'
 
 export default class App extends Component{
+   // obj传递到 navbar里
+   
+
 
     render(){
+
+        var obj = {
+            title : "测试",
+            leftshow:false 
+        }
         return (
             <div>
                 <div>
@@ -14,12 +22,13 @@ export default class App extends Component{
 
                 <div>
                 <h2>列表</h2>    
-                <NavBar  title="列表" leftshow={true}  /> 
+                <NavBar  title="列表"   /> 
                 </div>
 
                 <div>
                 <h2>购物车</h2>    
-                <NavBar  title="购物车" leftshow={true}  /> 
+                <NavBar  title={obj.title} leftshow={obj.leftshow}   /> 
+                <NavBar {...obj} />
                 </div>
             
             </div>
