@@ -37,6 +37,8 @@ export default class App extends Component{
   // setState 异步更新状态 
   console.log(this.state.count)
         })
+
+        // setState 接受第二参数，回调函数 dom更新完成之后就会触发
      
 
     }

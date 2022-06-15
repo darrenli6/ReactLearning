@@ -12,6 +12,8 @@ export default class NavBar extends Component
     // 状态在内部使用，外面不能调用修改
     // 属性是父组件拿来的 
     render(){
+
+        
         console.log(this.props)
         let {title,leftshow} = this.props
 
