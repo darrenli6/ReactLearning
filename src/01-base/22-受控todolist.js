@@ -60,10 +60,12 @@ export default class App extends Component{
         // console.log("click2",this.myref.current.value)
         //不要直接修改状态，可能造成不可预期的问题
         /*
+
         this.state.list.push(this.myref.current.value)
         this.setState({
             list :this.state.list
         })
+        
         */
        // 这是引用复制,不提倡
        /*
